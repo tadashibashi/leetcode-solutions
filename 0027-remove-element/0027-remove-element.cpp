@@ -1,10 +1,12 @@
-#include <algorithm>
-
 class Solution {
 public:
     int removeElement(vector<int>& nums, int val) {
-        // STL solution
-        return std::remove_if(nums.begin(), nums.end(), 
-            [val](auto i) { return i == val; }) - nums.begin();
+        int j = 0;
+        for (int i = 0, size=nums.size(); i < size; ++i) {
+            if (nums[i] != val)
+                nums[j++] = nums[i];
+        }
+
+        return j;
     }
 };
