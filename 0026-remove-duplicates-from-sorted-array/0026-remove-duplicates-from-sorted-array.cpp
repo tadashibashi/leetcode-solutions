@@ -1,13 +1,14 @@
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        std::set<int> set;
-        return std::remove_if(nums.begin(), nums.end(), [&set](auto &i) {
-            if (set.count(i))
-                return true;
-            
-            set.emplace(i);
-            return false;
-        }) - nums.begin();
+        if (nums.size() == 1) return 1;
+
+        int j = 1;
+        for (int i=1, size=nums.size(); i < size; ++i) {
+            if (nums[i] != nums[i-1])
+                nums[j++] = nums[i];
+        }
+
+        return j;
     }
 };
