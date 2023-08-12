@@ -58,7 +58,6 @@ function memoize(fn) {
     const memo = new MemoTree();
 
     return function(...params) {
-        console.log(params);
         return memo.get(params, fn);
     }
 }
