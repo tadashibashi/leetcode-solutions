@@ -12,6 +12,7 @@
 class Solution {
 public:
     void getMinDepth(TreeNode *node, int depth, int &shortest) {
+        if (depth >= shortest) return;
         if (!node->left && !node->right) {
             if (depth < shortest)
                 shortest = depth;
